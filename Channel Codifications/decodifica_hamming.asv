@@ -1,0 +1,63 @@
+function [decodedbits]=dcodifica_hamming(Zbits,G)
+
+
+ %% gerando os padroes de erro corrigiveis
+ tam=size(G);
+ error(1,:)=[zeros(tam(2),1)'];
+ error(2,:)=[1 zeros(tam(2)-1,1)']; %gerando o padrão de erros
+
+ for ind=3:tam(2)+1 %gerando o padrão de erros
+    error(ind,:)=circshift(error(ind-1,:)',+1)';
+ end
+ tam_error=size(error);
+
+ 
+ 
+ for ind=1:tam_error(1) 
+      sindrome(ind,:)=hamming_sindrome(error(ind,:),G); %calculando a síndrome   %para o padrão de erros
+ end
+
+ sind=sindrome;
+ 
+ 
+ 
+ indd=1;
+ while indd<length(data_coded)-1       
+     sindrome=hamming_sindrome(Zbits(indd:indd+tam(2)-1),G);
+     ind_error=find(bi2de(fliplr(sindrome))==bi2de(fliplr(sind)));
+     data_sent=mod((error(ind_error,:)+Zbits(indd:indd+tam(2)-1)),2);
+     
+     data_decodedi=
+  
+  
+  hamming_decoding(sind,error,data_coded1(indd+1:indd+tam_G(2)),G);
+ 	data_decoded1=[data_decoded1 data_decodedi];
+ 	indd=indd+tam_G(2);
+ end
+
+
+ sindrome=hamming_sindrome(Zbits,G);
+ 
+ 
+ 
+ %encontrando o índice da síncrome igual e ligando ao erro correspondente
+ data_sent=mod((error(ind_error,:)+data_coded),2);
+ tam_G=size(G);
+ nk=tam_G(2)-tam_G(1);
+ data_decoded=data_sent(nk+1:length(data_sent));
+    
+
+ end
+
+
+ 
+ 
+end
+
+
+ 
+
+
+
+
+ 

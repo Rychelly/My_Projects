@@ -1,0 +1,22 @@
+function [codedbits]=codifica_hamming(mbits)
+
+
+
+>> G = [1 1 0 1 0 0 0 ; 0 1 1 0 1 0 0; 1 1 1 0 0 1 0; 1 0 1 0 0 0 1];
+>> tam_G=size(G);
+>> clear data_coded;
+>> data_coded=2;
+>> for inda=1:k:length(data_gen)
+>> 	data_coded=[data_coded hamming_coding(data_gen(inda:inda+k-1),G)];
+>> end
+>> G = [1 1 0 1 0 0 0 ; 0 1 1 0 1 0 0; 1 1 1 0 0 1 0; 1 0 1 0 0 0 1];
+>> tam_G=size(G);
+>> clear data_coded;
+>> data_coded=2;
+>> for inda=1:k:length(data_gen)
+>> 	data_coded=[data_coded hamming_coding(data_gen(inda:inda+k-1),G)];
+>> end
+
+
+
+end
